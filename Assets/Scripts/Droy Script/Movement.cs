@@ -4,7 +4,7 @@ using System.Collections;
 public class Movement : MonoBehaviour {
 
 
-	public Transform playerTransform;
+	Transform playerTransform;
 	NavMeshAgent enemyAgent;
 	private float speed;
 	
@@ -13,14 +13,14 @@ public class Movement : MonoBehaviour {
 		
 		speed = 3.0f;
 		enemyAgent = GetComponent<NavMeshAgent> ();
-		
+		playerTransform = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
 	
 	
 	void Update () {
 		
 		
-		//transform.LookAt(playerTransform);
+		//transform.LookAt(playerTransform.position);
 		enemyAgent.SetDestination (playerTransform.position);
 
 		/*float distance = speed*Time.deltaTime;

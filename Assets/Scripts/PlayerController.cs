@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 	bool isJumping = false;
 
 	void Start () {
-		speed = 4.0f;
+		speed = 3.0f;
 		timer = 0.0f;
 		vectorCenter = new Vector3(centerX, centerY);
 		cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
@@ -50,10 +50,10 @@ public class PlayerController : MonoBehaviour {
 		//cameraTransform.position = transform.position + new Vector3(0.3f, 1.0f, -2.1f);
 
 		if(Input.GetMouseButtonDown(0)) {
-			gunObj.GetComponent<Gun>().StartShoot();
+			gunObj.GetComponent<GunPlayer>().StartShoot();
 		}
 		if(Input.GetMouseButtonUp(0)) {
-			gunObj.GetComponent<Gun>().StopShoot();
+			gunObj.GetComponent<GunPlayer>().StopShoot();
 		}
 		if (Input.GetKeyDown ("space")) {
 			if (!isJumping) {
@@ -99,5 +99,12 @@ public class PlayerController : MonoBehaviour {
 		// x = up, down
 		// y = left, right
 		//------------------------------------------
+	}
+
+	public void changeColor(int BulletType){
+		gunObj.GetComponent<GunPlayer>().type = BulletType;
+		if (BulletType == 1) {
+			gunObj.GetComponent<GunPlayer> ().timeLeft = 10.0f;
+		}
 	}
 }

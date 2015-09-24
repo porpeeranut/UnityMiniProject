@@ -47,16 +47,33 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Coin\BulletCheck.cs" />
+     <Compile Include="Assets\Scripts\Coin\DamageCheck.cs" />
      <Compile Include="Assets\Scripts\Droy Script\ArmRotate.cs" />
+     <Compile Include="Assets\Scripts\Droy Script\BulletDroid.cs" />
+     <Compile Include="Assets\Scripts\Droy Script\DroyHealth.cs" />
+     <Compile Include="Assets\Scripts\Droy Script\EnemyController.cs" />
+     <Compile Include="Assets\Scripts\Droy Script\EnemyHealth.cs" />
+     <Compile Include="Assets\Scripts\Droy Script\EnergyCheck.cs" />
      <Compile Include="Assets\Scripts\Droy Script\EyeWinks.cs" />
+     <Compile Include="Assets\Scripts\Droy Script\GunDroy.cs" />
      <Compile Include="Assets\Scripts\Droy Script\Movement.cs" />
-     <Compile Include="Assets\Scripts\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\EnergyCheck.cs" />
+     <Compile Include="Assets\Scripts\EnemyController2.cs" />
+     <Compile Include="Assets\Scripts\EnergyCheck2.cs" />
      <Compile Include="Assets\Scripts\GoalCheck.cs" />
-     <Compile Include="Assets\Scripts\Gun.cs" />
+     <Compile Include="Assets\Scripts\GunPlayer.cs" />
+     <Compile Include="Assets\Scripts\Player\Bulletplayer.cs" />
+     <Compile Include="Assets\Scripts\Player\GunPlayer2.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerController2.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerController3.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerHealth3.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\Snowman Script\LifeRe.cs" />
+     <Compile Include="Assets\Scripts\Snowman Script\SnowStrom.cs" />
+     <Compile Include="Assets\Scripts\SpawnCoin.cs" />
+     <Compile Include="Assets\Scripts\SqawnEnemy.cs" />
+     <Compile Include="Assets\nouse\MonsterSpawn\DroySp.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

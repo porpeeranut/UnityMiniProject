@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour {
 
+	public int attack;
 	float startTime;
 	float lifeTime;
 	float timer;
@@ -21,7 +22,8 @@ public class Bullet : MonoBehaviour {
 	void OnCollisionEnter(Collision obj){
 		if(obj.gameObject.CompareTag("Enemy")){
 		//if(obj.gameObject.GetComponent<EnemyHealth>()){
-			Destroy(obj.gameObject);
+			obj.gameObject.GetComponent<DroyHealth> ().Damage(attack);
+			//Destroy(obj.gameObject);
 		}
 	}
 }
