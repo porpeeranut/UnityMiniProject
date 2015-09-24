@@ -16,9 +16,13 @@ public class PlayerController : MonoBehaviour {
 	float centerX = Screen.width / 2;
 	float centerY = Screen.height / 2;
 	private Vector3 vectorCenter;
+	float timer;
+	float jumpPower = 7.0f;
+	bool isJumping = false;
 
 	void Start () {
 		speed = 4.0f;
+		timer = 0.0f;
 		vectorCenter = new Vector3(centerX, centerY);
 		cameraTransform = GameObject.FindGameObjectWithTag("MainCamera").transform;
 		gunObj = GameObject.FindGameObjectWithTag("Gun");
@@ -41,8 +45,9 @@ public class PlayerController : MonoBehaviour {
 
 		transform.position = transform.position + moveDistance;
 		//cameraTransform.position = cameraTransform.transform.position + moveDistance;
+		cameraTransform.position = transform.position + transform.up*0.8f - transform.forward*1.5f + transform.right*0.3f;
+		//cameraTransform.position = transform.position + transform.up*0.8f - transform.forward*0.9f + transform.right*0.3f;
 		//cameraTransform.position = transform.position + new Vector3(0.3f, 1.0f, -2.1f);
-		cameraTransform.position = transform.position + transform.up*0.6f - transform.forward*0.4f + transform.right*0.1f;
 
 		if(Input.GetMouseButtonDown(0)) {
 			gunObj.GetComponent<Gun>().StartShoot();
@@ -51,9 +56,15 @@ public class PlayerController : MonoBehaviour {
 			gunObj.GetComponent<Gun>().StopShoot();
 		}
 		if (Input.GetKeyDown ("space")) {
-			jump();
+			if (!isJumping) {
+				isJumping = true;
+				GetComponent<Rigidbody>().velocity = transform.up * jumpPower;
+			}
 		}
-
+		if(isJumping && GetComponent<Rigidbody>().velocity.y == 0) {
+			isJumping = false;
+		}
+		
 		//--------------- rotate cam ---------------
 		float upDownDeg = cameraTransform.rotation.eulerAngles.x;
 		float upDownRad = (cameraTransform.rotation.eulerAngles.x) * Mathf.PI / 180.0f;
@@ -62,14 +73,14 @@ public class PlayerController : MonoBehaviour {
 		// up, down (x axis)
 		// looking down
 		if (pos.y < -0.005) {
-			if (upDownDeg < 45 || upDownDeg > 270) {
+			if (upDownDeg < 35 || upDownDeg > 270) {
 				cameraTransform.RotateAround(transform.position, transform.right, -pos.y * turnUpSpeed);
 				gunObj.transform.RotateAround(transform.position, transform.right, -pos.y * turnUpSpeed);
 			}
 		}
 		// looking up
 		if (pos.y > 0.005) {
-			if (upDownDeg < 90 || upDownDeg > 340) {
+			if (upDownDeg < 90 || upDownDeg > 350) {
 				cameraTransform.RotateAround(transform.position, transform.right, -pos.y * turnUpSpeed);
 				gunObj.transform.RotateAround(transform.position, transform.right, -pos.y * turnUpSpeed);
 			}
@@ -88,9 +99,5 @@ public class PlayerController : MonoBehaviour {
 		// x = up, down
 		// y = left, right
 		//------------------------------------------
-	}
-
-	void jump () {
-		transform.position = transform.position + Vector3.up*0.2f;
 	}
 }

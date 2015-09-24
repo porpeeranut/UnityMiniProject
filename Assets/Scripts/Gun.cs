@@ -25,8 +25,8 @@ public class Gun : MonoBehaviour {
 	IEnumerator Shooting(float delayTime){
 		while(isShooting){
 			timer = timer + Time.deltaTime;
-			//Debug.Log("timer:"+timer);
-			if(timer >= shootRate){
+			//Debug.Log("timer:"+delayTime);
+			if(timer >= delayTime){
 
 				Vector3 tmpVec = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 				tmpVec += transform.up * 0.5f;
