@@ -12,8 +12,8 @@ public class DroyHealth : MonoBehaviour {
 	Vector3 spawnPosition; 
 	GameObject coin;
 	void Start () {
-		maxHealth = 8;
-		health = 8;
+		//maxHealth = 8;
+		//health = 10;
 		isDead = false;
 
 	}
@@ -22,8 +22,9 @@ public class DroyHealth : MonoBehaviour {
 		//Debug.Log("Health: " + health); 
 	}
 	public void Damage(int damage){
+	//	Debug.Log (health);
 		health -= damage;
-
+		//Debug.Log (health);
 			//GetComponent<MeshRenderer>().material.color = Color.red;
 
 		if(health <= 0 && !isDead){
@@ -32,13 +33,13 @@ public class DroyHealth : MonoBehaviour {
 			//Application.LoadLevel(Application.loadedLevel);
 		}
 	}
-	public void AddHealth(int boost){
+	/*public void AddHealth(int boost){
 		health += boost;
 		if(health >= maxHealth){
 			health = maxHealth;		
 			//GetComponent<MeshRenderer>().material.color = Color.white;		
 		}
-	}
+	}*/
 	void Die(){
 		Destroy(gameObject); 
 	}
@@ -55,6 +56,11 @@ public class DroyHealth : MonoBehaviour {
 			}
 			Instantiate(coin,transform.position,Quaternion.identity);
 		}
+	}
+	public void setHealth(int droyHealth){
+
+		health = droyHealth;
+
 	}
 
 }

@@ -6,7 +6,7 @@ public class LifeRe : MonoBehaviour {
 	float lifeTime;
 	float timer;
 	void Start () {
-		lifeTime = 1.2f;
+		lifeTime = 2.0f;
 		startTime = Time.time;
 	}
 	void Update () {
@@ -14,10 +14,10 @@ public class LifeRe : MonoBehaviour {
 			Destroy(gameObject);
 		}
 	}
-	void OnTriggerEnter(Collider obj){
+	void OnCollisionEnter(Collision obj){
 
 		if(obj.gameObject.CompareTag("Player")){
-			obj.GetComponent<PlayerHealth>().AddHealth(1);
+			obj.gameObject.GetComponent<PlayerHealth>().AddHealth(100);
 		}
 	}
 }

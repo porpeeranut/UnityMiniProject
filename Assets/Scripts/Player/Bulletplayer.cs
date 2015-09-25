@@ -23,7 +23,7 @@ public class Bulletplayer : MonoBehaviour {
 		if(obj.gameObject.CompareTag("Enemy")){
 			//if(obj.gameObject.GetComponent<EnemyHealth>()){
 			obj.gameObject.GetComponent<DroyHealth> ().Damage(attack);
-			//Destroy(obj.gameObject);
+			Destroy(gameObject);
 		}
 	}
 }

@@ -31,4 +31,10 @@ public class Movement : MonoBehaviour {
 		
 		
 	}
+
+	void OnCollisionEnter(Collision obj){
+		if(obj.gameObject.CompareTag("Player")){
+			obj.gameObject.GetComponent<PlayerHealth>().Damage(1);
+		}
+	}
 }

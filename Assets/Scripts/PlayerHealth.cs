@@ -8,8 +8,8 @@ public class PlayerHealth : MonoBehaviour {
 	int maxHealth;
 	float healthBarLength;
 
-	public Texture2D bgImage; 
-	public Texture2D fgImage;
+	Texture2D bgImage; 
+	Texture2D fgImage;
 
 	void Start () {
 		health = 300;
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour {
 	public void AddHealth(int boost){
 		health += boost;
 		if(health >= maxHealth){
-			Application.LoadLevel("Scene2");
+			health = maxHealth;
 		}
 	}
 

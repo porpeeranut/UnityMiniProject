@@ -20,7 +20,7 @@ public class GunPlayer : MonoBehaviour {
 		if (type == 1 ) {
 			// End the level here.
 			timeLeft -= Time.deltaTime;
-			print("Time left = " + (int)timeLeft + " seconds");
+			//print("Time left = " + (int)timeLeft + " seconds");
 			if (timeLeft <= 0){
 				type = 0;
 			}

@@ -8,17 +8,16 @@ public class SqawnEnemy : MonoBehaviour {
 	public GameObject enemy;
 	public GameObject enemy2;
 	GameObject Enemy;
-
 	float timer;
 	float intervalTime;
 	List<Vector3> spawnPosList = new List<Vector3>();
 	//Vector3 spawnPosition;
 	void Start () {
-		spawnPosList.Add(new Vector3 (15.6f, 2.19f, 16.0f));
-		spawnPosList.Add(new Vector3 (-21.5f, 2.19f, -19.7f));
-		spawnPosList.Add(new Vector3 (6.0f, 17.4f, 17.6f));
+		spawnPosList.Add(new Vector3 (4.8f, 6.81f, 6.879f));
+		spawnPosList.Add(new Vector3 (-8.6f, 7.43f, -7.05f));
+		spawnPosList.Add(new Vector3 (0.4f, 10f, -3.0f));
 		Spawn();
-		intervalTime = 1.0f;
+		intervalTime = 5.0f;
 		timer = intervalTime;
 
 	}
@@ -37,8 +36,16 @@ public class SqawnEnemy : MonoBehaviour {
 		int idx = Random.Range (0, 3);
 
 		//spawnPosition.Set (0.0f, 0.0f, 0.0f);
-		Enemy = Random.value < 0.5 ? enemy : enemy2; 
-
-		Instantiate(Enemy,spawnPosList[idx],Quaternion.identity); 
-	}
+		//Enemy = Random.value < 0.5 ? enemy : enemy2; 
+		GameObject enemyTmp = null;
+		int randomDroy = Random.Range (0, 10);
+		if (randomDroy < 6) {
+			enemyTmp = (GameObject)Instantiate(enemy, spawnPosList [idx], Quaternion.identity); 
+			enemyTmp.GetComponent<DroyHealth> ().setHealth(1) ;
+		} else {
+			enemyTmp = (GameObject)Instantiate(enemy2, spawnPosList [idx], Quaternion.identity); 
+			enemyTmp.GetComponent<DroyHealth> ().setHealth(5) ;
+		
+		}
+		}
 }
