@@ -50,9 +50,10 @@
      <Compile Include="Assets\Scripts\Boss\BossMove.cs" />
      <Compile Include="Assets\Scripts\Boss\BossPower.cs" />
      <Compile Include="Assets\Scripts\Boss\RingRotate.cs" />
+     <Compile Include="Assets\Scripts\Boss\SpwanBoss.cs" />
      <Compile Include="Assets\Scripts\Boss\powerX.cs" />
-     <Compile Include="Assets\Scripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\CheckPoint1.cs" />
+     <Compile Include="Assets\Scripts\CheckPointBoss.cs" />
      <Compile Include="Assets\Scripts\Coin\BulletCheck.cs" />
      <Compile Include="Assets\Scripts\Coin\DamageCheck.cs" />
      <Compile Include="Assets\Scripts\Droy Script\ArmRotate.cs" />
@@ -64,7 +65,6 @@
      <Compile Include="Assets\Scripts\Droy Script\EyeWinks.cs" />
      <Compile Include="Assets\Scripts\Droy Script\GunDroy.cs" />
      <Compile Include="Assets\Scripts\Droy Script\Movement.cs" />
-     <Compile Include="Assets\Scripts\EnemyController2.cs" />
      <Compile Include="Assets\Scripts\EnergyCheck2.cs" />
      <Compile Include="Assets\Scripts\GoalCheck.cs" />
      <Compile Include="Assets\Scripts\GunPlayer.cs" />

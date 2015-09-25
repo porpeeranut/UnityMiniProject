@@ -4,41 +4,31 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 
 
-    //public Transform player;
+	Transform playerTransform;
 	NavMeshAgent enemyAgent;
-	Transform player;
-	//private float speed;
 
+	private float speed;
 
 	void Start () {
-		enemyAgent = GetComponent<NavMeshAgent> ();
-	  // speed = 3.0f;
-		player = GameObject.FindGameObjectWithTag("Player").transform;
-
+		speed = 3.0f;
+		enemyAgent = GetComponent<NavMeshAgent>();
+		playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 	}
-	
 
 	void Update () {
+		transform.LookAt(playerTransform);
+		enemyAgent.SetDestination (playerTransform.position);
 
-		if (player != null) {
-			transform.LookAt (player.position);// หันหน้าไปทางเพลเยอ
-			enemyAgent.SetDestination(player.position);
-
-			/* ศัตรูโง่ๆ
-		float distance = speed*Time.deltaTime;
-		Vector3 source = transform.position;// ตำแหน่งของศัตรู
-		Vector3 target = playerTransform.position;	// postion of player
-		transform.position = Vector3.MoveTowards(source,target,distance); // new postion of enemy  ศัตรูsourceวิ่งไปหาเพลเยอtargetจากด้วยระยะทาง distance
-		*/
-		}
+//		float distance = speed*Time.deltaTime;
+//		Vector3 source = transform.position;
+//		Vector3 target = playerTransform.position;
+//		transform.position = Vector3.MoveTowards(source,target,distance);
 	}
 
 	void OnCollisionEnter(Collision obj){
-		
-		if (obj.gameObject.CompareTag ("Player")) {//if(obj.gameObject.GetComponent<EnemyHealth>()){
-			//			Debug.Log (attack);
-			obj.gameObject.GetComponent<PlayerHealth> ().Damage(100);
-			
+		if(obj.gameObject.CompareTag("Player")){
+			obj.gameObject.GetComponent<PlayerHealth>().Damage(1);
+			//Destroy(gameObject);
 		}
 	}
 }

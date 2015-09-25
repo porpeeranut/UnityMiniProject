@@ -6,6 +6,7 @@ public class DroyHealth : MonoBehaviour {
 	int health;
 	int maxHealth;
 	bool isDead;
+	bool isBoss = false;
 	public GameObject healthCoin;
 	public GameObject DamageCoin; 
 	public GameObject BulletCoin; 
@@ -16,6 +17,10 @@ public class DroyHealth : MonoBehaviour {
 		//health = 10;
 		isDead = false;
 
+	}
+
+	public void setIsBoss() {
+		isBoss = true;
 	}
 	void Update () {
 
@@ -42,6 +47,9 @@ public class DroyHealth : MonoBehaviour {
 	}*/
 	void Die(){
 		Destroy(gameObject); 
+		if(isBoss)
+			Application.LoadLevel("SceneEnd");
+
 	}
 	void Energy(){
 		int rItem = Random.Range (0, 10);

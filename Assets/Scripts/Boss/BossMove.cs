@@ -47,4 +47,9 @@ public class BossMove : MonoBehaviour {
 		
 		
 	}
+	void OnCollisionEnter(Collision obj){
+		if(obj.gameObject.CompareTag("Player")){
+			obj.gameObject.GetComponent<PlayerHealth>().Damage(10);
+		}
+	}
 }

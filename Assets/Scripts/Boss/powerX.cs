@@ -6,7 +6,7 @@ public class powerX : MonoBehaviour {
 	float startTime;
 	float lifeTime;
 	float timer;
-	void Start(){
+	void Start(){		
 		lifeTime = 1.0f;
 		startTime = Time.time;
 	}
