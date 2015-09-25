@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour {
 
 		transform.position = transform.position + moveDistance;
 		//cameraTransform.position = cameraTransform.transform.position + moveDistance;
-		cameraTransform.position = transform.position + transform.up*0.8f - transform.forward*1.5f + transform.right*0.3f;
-		//cameraTransform.position = transform.position + transform.up*0.8f - transform.forward*0.9f + transform.right*0.3f;
+		//cameraTransform.position = transform.position + transform.up*0.8f - transform.forward*1.5f + transform.right*0.3f;
+		cameraTransform.position = transform.position + transform.up*0.5f - transform.forward*1.1f + transform.right*0.3f;
 		//cameraTransform.position = transform.position + new Vector3(0.3f, 1.0f, -2.1f);
 
 		if(Input.GetMouseButtonDown(0)) {

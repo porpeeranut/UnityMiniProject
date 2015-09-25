@@ -12,8 +12,8 @@ public class PlayerHealth : MonoBehaviour {
 	public Texture2D fgImage;
 
 	void Start () {
-		health = 3;
-		maxHealth = 9;
+		health = 300;
+		maxHealth = 300;
 		healthBarLength = Screen.width /2;
 	}
 
